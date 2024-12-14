@@ -1,128 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio Website</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-        }
-        header {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-        }
-        nav ul li {
-            display: inline;
-            margin: 0 15px;
-        }
-        nav ul li a {
-            color: #fff;
-            text-decoration: none;
-        }
-        section {
-            padding: 20px;
-            margin: 20px;
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2 {
-            color: #333;
-        }
-        .project {
-            margin-bottom: 20px;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
-        }
-        form label {
-            margin-top: 10px;
-        }
-        form input, form textarea {
-            padding: 10px;
-            margin-top: 5px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        form input[type="submit"] {
-            margin-top: 20px;
-            background-color: #333;
-            color: #fff;
-            border: none;
-            cursor: pointer;
-        }
-        form input[type="submit"]:hover {
-            background-color: #555;
-        }
-        footer {
-            text-align: center;
-            padding: 10px 0;
-            background-color: #333;
-            color: #fff;
-            position: fixed;
-            width: 100%;
-            bottom: 0;
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Portfolio Website</title>
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <section id="about">
-        <h2>About Me</h2>
-        <p>Software engineer with a passion for developing innovative programs that expedite the efficiency and effectiveness of organizational success.</p>
-    </section>
+        <section id="about">
+            <h2>About Me</h2>
+            <p>
+                Data-driven and innovative software engineer with 5+ years of experience
+                in software development, API integration, and project planning. Highly
+                proficient in software architecture, cloud development, and data
+                management systems. Skilled in requirements gathering, system
+                validation, and documentation development.
+            </p>
+        </section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <h3>Project 1</h3>
-            <p>Description of project 1.</p>
-        </div>
-        <div class="project">
-            <h3>Project 2</h3>
-            <p>Description of project 2.</p>
-        </div>
-        <div class="project">
-            <h3>Project 3</h3>
-            <p>Description of project 3.</p>
-        </div>
-    </section>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="project">
+                <h3>Project</h3>
+                <p>
+                    This is my application called BlackMarket SSP. This application tracks
+                    the currency exchange rate of the black market in South Sudan. It also
+                    tracks the exchange rate of the official bank rate. Additionally, it tracks the daily production of all the petroleum operating companies in South
+                    Sudan. The application is available on the web and on mobile platforms, both
+                    Android and iOS. The application was developed using React Native for
+                    the UI, and the backend was developed using Node.js and Express.js. The
+                    database is Firebase Realtime Database. The backend consists of a combination
+                    of Firebase functions that periodically gather data from relevant sources,
+                    and services that gather data from multiple sources to accurately
+                    estimate the current black market rate of the South Sudanese pound
+                    against 10 currencies in the region around South Sudan and globally.
+                    The application also has a social element where users can upvote or
+                    downvote daily rates and comment on rates in their respective areas.
+                </p>
+            </div>
+            <div class="project">
+                <h3>Project 1 Screenshot</h3>
+                <img src="images/login-page.png" alt="Screenshot of Project 1"   style="max-width: 200px;"/>
+                <p>This is the login screen.</p>
+            </div>
+            <div class="project">
+                <h3>Project 1 Screenshot</h3>
+                <img src="images/joc_page.png" alt="Screenshot of Project 1" />
+                <p>This is the Petroleum Operation Company screen.</p>
+            </div>
+            <div class="project">
+                <h3>Project 1 Screenshot</h3>
+                <img src="images/joc-chart-page.png" alt="Screenshot of Project 1" />
+                <p>This is the Petroleum Operation Company charts page.</p>
+            </div>
+            <div class="project">
+                <h3>Project 1 Screenshot</h3>
+                <img src="images/sspofficialpage.png" alt="Screenshot of Project 1" />
+                <p>
+                    This is the SSP official rate screen, with data sourced from the Bank of South
+                    Sudan (BOSS).
+                </p>
+            </div>
+            <div class="project">
+                <h3>Project 1 Screenshot</h3>
+                <img src="images/ssp-chart-page-lower.png" alt="Lower screen" />
+                <img src="images/ssp-chart-page-upper.png" alt="Upper screen" />
+                <p>
+                    This is the SSP official rate screen statistics page, with data sourced from the
+                    Bank of South Sudan (BOSS).
+                </p>
+            </div>
+            <div class="project">
+                <h3>Project 1 Screenshot</h3>
+                <img
+                    src="images/blackmarketscreen.png"
+                    alt="Black market rate screen"
+                />
+                <p>
+                    This is the black market rate screen, with data sourced from accurate
+                    estimations from multiple sources.
+                </p>
+            </div>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <form action="mailto:your-email@example.com" method="post" enctype="text/plain">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email">
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="4" cols="50"></textarea>
-            <input type="submit" value="Send">
-        </form>
-    </section>
+            <div class="project">
+                <h3>Project 1 Screenshot</h3>
+                <img
+                    src="images/blackmarketcommentsscreen.png"
+                    alt="Black market rate screen comment section"
+                />
+                <p>This is the black market rate screen comments section.</p>
+            </div>
 
-    <footer>
-        <p>&copy; 2023 Your Name. All rights reserved.</p>
-    </footer>
-</body>
+            <div class="project">
+                <h3>Project 2</h3>
+                <p>Description of project 2.</p>
+            </div>
+            <div class="project">
+                <h3>Project 3</h3>
+                <p>Description of project 3.</p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <form action="submit_form.php" method="post">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" />
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" />
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" cols="50"></textarea>
+                <input type="submit" value="Send" />
+            </form>
+        </section>
+
+        <footer>
+            <p>&copy; 2023 Your Name. All rights reserved.</p>
+        </footer>
+    </body>
 </html>
