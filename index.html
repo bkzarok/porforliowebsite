@@ -29,6 +29,33 @@
     </section>
 
     <section id="projects">
+      <h2>Hermes Project</h2>
+      <div class="project-description">
+        <h3>Real Work Project at NICE </h3>
+        <p>
+            At NICE, I worked on a project called Hermes. The application was an internal tool.
+            Hermes is a cloud-based platform that provides a comprehensive solution 
+            for managing and utilizing data from multiple sources. 
+            NICE specializes in call center software, offering storage for calls,
+             video, chat, and email from companies worldwide. The platform allows 
+             users to access AWS S3 data and transfer it to another S3 bucket, 
+             an SFTP server, an artifactory server, or a physical storage device.
+              The application often runs for extended periods, ranging from days 
+              to weeks, depending on the data size being transferred. It is 
+              designed to be resilient to network failures and other potential 
+              issues during the transfer process. The backend consists of four 
+              main workers: the Meta Data Retrieval Worker, which retrieves 
+              metadata from Elasticsearch or DynamoDB; the Glacier Restore Worker, 
+              which restores data from Glacier to S3; the S3 to S3 Transfer Worker, 
+              which transfers data between S3 buckets; and the SFTP Worker, 
+              which transfers data from S3 to an SFTP server. The frontend was 
+              developed using an ASP.NET Core web application, while the backend
+               was built with .NET Core. The database used was MS SQL, 
+               and the queuing system was based on SQL Server.
+        </p>
+      </div>
+
+      <!-- Project 1 -->
       <h2>Black Market SSP Application</h2>
       <div class="project-description">
         <h3>Project</h3>
