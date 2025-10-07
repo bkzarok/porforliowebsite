@@ -27,6 +27,65 @@
         validation, and documentation development.
       </p>
     </section>
+    <section id="projects">
+        <div class="project-header">
+          <h1>Data Wrangler + RAG Chatbot</h1>
+          <div class="hero-sub">End-to-end pipeline: raw documents → searchable index → citation-first chatbot</div>
+        </div>
+    
+          <section class="card">
+            <h2>Project Summary</h2>
+            <p>
+              The <strong>Data Wrangler + RAG Chatbot</strong> is an end-to-end system that converts a focused corpus
+              (≈30–50 long-form documents: PDFs, HTML, or API outputs) into a searchable knowledge base and
+              a Retrieval-Augmented Generation (RAG) chatbot. The chatbot answers user queries with inline citations
+              to the exact source passages, prioritizing factual accuracy and traceability.
+            </p>
+            <p>
+              Key goals: reproducible ingestion, modular processing, trustworthy answers (citations), and an easy demo UI.
+            </p>
+          </section>
+    </section>
+
+    <section class="card">
+      <h2>Architecture Overview</h2>
+      <p>
+        The pipeline comprises: <strong>Ingestion → Preprocessing/Chunking → Enrichment → Embeddings → Index → Retrieval → LLM → UI</strong>.
+        The system produces chunk-level metadata and persisted vector indexes for fast retrieval. A prompt orchestration layer injects the top-k passages into the LLM prompt and returns answers with inline citations and source references.
+      </p>
+
+      <h3>Detailed Components</h3>
+      <ul>
+        <li><strong>Data Sources:</strong> PDFs, HTML pages, public APIs (manifested with metadata).</li>
+        <li><strong>Ingestion:</strong> Scrapers/downloaders; raw files kept in <code>data/raw/</code>.</li>
+        <li><strong>Extraction & Cleaning:</strong> PDF/HTML extraction (pdfminer / readability), normalization in <code>data/interim/</code>.</li>
+        <li><strong>Chunking:</strong> Heading-aware or sliding-window (~800 chars / 120 overlap), chunks saved to <code>data/processed/</code>.</li>
+        <li><strong>Enrichment:</strong> Optional NER and chunk summaries (SpaCy or small summarizer).</li>
+        <li><strong>Embeddings & Indexing:</strong> sentence-transformers → FAISS / Chroma / Pinecone; index persisted in <code>data/index/</code>.</li>
+        <li><strong>Retrieval & RAG:</strong> top-k search, optional re-ranking, prompt builder that injects numbered excerpts and enforces “answer from context only”.</li>
+        <li><strong>Application:</strong> Streamlit/Gradio demo + REST API for integration.</li>
+      </ul>
+    
+      <img
+        src="images/RAG-Diagram.png"
+        alt="Architecture Diagram"
+        style="max-width: 600px; display: block; margin: 20px auto;">
+          <h2>Tech Stack</h2>
+          <div class="tech">
+            <span class="chip">Python 3.10+</span>
+            <span class="chip">Sentence-Transformers</span>
+            <span class="chip">FAISS / Chroma / Pinecone</span>
+            <span class="chip">OpenAI / Vertex AI</span>
+            <span class="chip">Streamlit / Gradio</span>
+            <span class="chip">GCS / S3</span>
+            <span class="chip">SpaCy</span>
+            <span class="chip">Docker / Kubernetes</span>
+          </div>
+          <p style="margin:0.15rem 0">
+            <strong>RAG Project Repo link:</strong> <a href="https://github.com/bkzarok/rag-project.git" id="github-link">RAG Project repo</a>
+          </p>
+    </section>
+
 
     <section id="projects">
       <h2>HDC Website Development Project</h2>
@@ -39,6 +98,14 @@
     </section>
 
     <section id="projects">
+      <h2>HDC Website Development Project</h2>
+      <div class="project-description">
+        <h3>Real Work Project at HDC </h3>
+        <p>          
+          <a href="https://hdcafrica.org/">HDC Website Link</a> </br>
+          I Updated Organization Web Site: Revamped Organizational Website: Implemented new web pages and success stories, boosting the site’s appeal to donors and stakeholders.        </p>
+      </div>
+
       <h2>Hermes Project</h2>
       <div class="project-description">
         <div class="hrisproject">
@@ -246,16 +313,23 @@
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
-      <form action="submit_form.php" method="post">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" />
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" />
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="4" cols="50"></textarea>
-        <input type="submit" value="Send" />
-      </form>
+       <section class="card">
+          <h2>Links & Contact</h2>
+          <p style="margin:0.15rem 0">
+            <strong>Email:</strong> bkzarok@gmail.com
+          <p style="margin:0.15rem 0">
+            <strong>Repo:</strong> <a href="https://www.github.com/bkzarok" id="github-link">GitHub link</a>
+          </p>
+          <p style="margin:0.15rem 0">
+            <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/kuir-arok-711ba528a/" id="linkedin-link">LinkedIn link</a>
+          </p>
+          <!-- <p style="margin:0.15rem 0">
+            <strong>Demo:</strong> <a href="#" id="demo-link">Streamlit demo / hosted UI</a>
+          </p>
+          <p style="margin:0.15rem 0">
+            <strong>README:</strong> Include run instructions, acceptance criteria, and a short report.
+          </p> -->
+        </section>
     </section>
 
     <footer>
