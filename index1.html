@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Data Wrangler + RAG Chatbot — Project Overview</title>
+  <style>
+    :root{
+      --bg:#ffffff; --card:#f7f9fb; --accent:#1f6feb; --text:#0f1720;
+      --muted:#526070; --maxw:900px;
+    }
+    body{font-family:Inter,Segoe UI,Roboto,Arial,sans-serif; background:var(--bg); color:var(--text); line-height:1.6; margin:0; padding:24px;}
+    .container{max-width:var(--maxw); margin:0 auto;}
+    header{background-color: #333; color: #fff; padding: 1rem 0; text-align: center;}
+    h1{font-size:1.6rem; margin:0;}
+    .hero-sub{color:var(--muted); margin-top:6px; font-size:0.95rem;}
+    .card{background:var(--card); padding:18px; border-radius:10px; box-shadow:0 1px 0 rgba(15,23,32,0.04); margin-bottom:18px;}
+    h2{font-size:1.15rem; margin:8px 0 12px;}
+    ul{margin:8px 0 12px 18px;}
+    a{color: #fff; text-decoration:none; font-weight: bold;}
+    code{background:#eef3ff; padding:2px 6px; border-radius:6px; font-size:0.95em;}
+    .two-col{display:grid; grid-template-columns:1fr 320px; gap:18px; align-items:start;}
+    img.arch{width:100%; border:1px solid #e6eefc; border-radius:8px;}
+    .tech{display:flex; flex-wrap:wrap; gap:8px;}
+    .chip{background:#fff; border:1px solid #e6eefc; padding:6px 10px; border-radius:999px; font-size:0.9rem;}
+    footer{color:var(--muted); font-size:0.9rem; margin-top:22px;}
+    .cta{display:inline-block; background:var(--accent); color:#fff; padding:8px 12px; border-radius:8px; text-decoration:none;}
+    @media (max-width:880px){ .two-col{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <div class="container"> 
+    <header>
+      <nav>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section id="about" class="card">
+      <h2>About Me</h2>
+      <p>
+        Data-driven and innovative software engineer with 5+ years of experience
+        in software development, API integration, and project planning. Highly
+        proficient in software architecture, cloud development, and data
+        management systems. Skilled in requirements gathering, system
+        validation, and documentation development.
+      </p>
+    </section>
+
+   
+    <section id="projects">
+    <header>
+      <div>
+        <h1>Data Wrangler + RAG Chatbot</h1>
+        <div class="hero-sub">End-to-end pipeline: raw documents → searchable index → citation-first chatbot</div>
+      </div>
+    </header>
+
+      <section class="card">
+        <h2>Project Summary</h2>
+        <p>
+          The <strong>Data Wrangler + RAG Chatbot</strong> is an end-to-end system that converts a focused corpus
+          (≈30–50 long-form documents: PDFs, HTML, or API outputs) into a searchable knowledge base and
+          a Retrieval-Augmented Generation (RAG) chatbot. The chatbot answers user queries with inline citations
+          to the exact source passages, prioritizing factual accuracy and traceability.
+        </p>
+        <p>
+          Key goals: reproducible ingestion, modular processing, trustworthy answers (citations), and an easy demo UI.
+        </p>
+      </section>
+    </section>
+      
+
+    <div class="two-col">
+      <div>
+        <section class="card">
+          <h2>Architecture Overview</h2>
+          <p>
+            The pipeline comprises: <strong>Ingestion → Preprocessing/Chunking → Enrichment → Embeddings → Index → Retrieval → LLM → UI</strong>.
+            The system produces chunk-level metadata and persisted vector indexes for fast retrieval. A prompt orchestration layer injects the top-k passages into the LLM prompt and returns answers with inline citations and source references.
+          </p>
+
+          <h3>Detailed Components</h3>
+          <ul>
+            <li><strong>Data Sources:</strong> PDFs, HTML pages, public APIs (manifested with metadata).</li>
+            <li><strong>Ingestion:</strong> Scrapers/downloaders; raw files kept in <code>data/raw/</code>.</li>
+            <li><strong>Extraction & Cleaning:</strong> PDF/HTML extraction (pdfminer / readability), normalization in <code>data/interim/</code>.</li>
+            <li><strong>Chunking:</strong> Heading-aware or sliding-window (~800 chars / 120 overlap), chunks saved to <code>data/processed/</code>.</li>
+            <li><strong>Enrichment:</strong> Optional NER and chunk summaries (SpaCy or small summarizer).</li>
+            <li><strong>Embeddings & Indexing:</strong> sentence-transformers → FAISS / Chroma / Pinecone; index persisted in <code>data/index/</code>.</li>
+            <li><strong>Retrieval & RAG:</strong> top-k search, optional re-ranking, prompt builder that injects numbered excerpts and enforces “answer from context only”.</li>
+            <li><strong>Application:</strong> Streamlit/Gradio demo + REST API for integration.</li>
+          </ul>
+        </section>
+
+        
+        <section class="card">
+          <h2>Why this is Portfolio-Worthy</h2>
+          <ul>
+            <li>Demonstrates ML-ops skills across data engineering, NLP, and vector search.</li>
+            <li>Shows prompt engineering and methods to reduce hallucinations via inline citations.</li>
+            <li>Modular <code>src/</code> code structure transforms notebooks into production-ready components.</li>
+            <li>Trade-offs documented (chunk size, embedding model choice, FAISS vs managed DB).</li>
+          </ul>
+        </section>
+
+        <section class="card">
+          <h2>How to Present It</h2>
+          <ol>
+            <li>Start with the elevator summary and architecture diagram.</li>
+            <li>Show code flow: ingestion → chunking → embeddings → retrieval → LLM prompt.</li>
+            <li>Demo three queries: a direct hit, an ambiguous/multi-source answer, and a no-answer fallback.</li>
+            <li>Close with metrics (latency, top-k hit rate), lessons learned, and next steps.</li>
+          </ol>
+        </section>
+      </div>
+
+      <aside>
+        <section class="card">
+          <h2>Architecture Diagram</h2>
+          <!-- Update the src if the png is hosted elsewhere -->
+          <img class="arch" src="rag_architecture_diagram.png" alt="RAG chatbot architecture diagram">
+          <p style="margin-top:8px; font-size:0.95rem; color:var(--muted);">
+            Place <code>rag_architecture_diagram.png</code> next to this HTML file or adjust the path to your hosted image.
+          </p>
+          <p style="margin-top:8px;">
+            <a class="cta" href="rag_architecture_diagram.png" download>Download Diagram</a>
+          </p>
+        </section>
+
+        <section class="card">
+          <h2>Tech Stack</h2>
+          <div class="tech">
+            <span class="chip">Python 3.10+</span>
+            <span class="chip">Sentence-Transformers</span>
+            <span class="chip">FAISS / Chroma / Pinecone</span>
+            <span class="chip">OpenAI / Vertex AI</span>
+            <span class="chip">Streamlit / Gradio</span>
+            <span class="chip">GCS / S3</span>
+            <span class="chip">SpaCy</span>
+            <span class="chip">Docker / Kubernetes</span>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Links & Artifacts</h2>
+          <p style="margin:0.15rem 0">
+            <strong>Repo:</strong> <a href="#" id="repo-link">Your GitHub link</a>
+          </p>
+          <p style="margin:0.15rem 0">
+            <strong>Demo:</strong> <a href="#" id="demo-link">Streamlit demo / hosted UI</a>
+          </p>
+          <p style="margin:0.15rem 0">
+            <strong>README:</strong> Include run instructions, acceptance criteria, and a short report.
+          </p>
+        </section>
+      </aside>
+    </div>
+
+    <section class="card">
+      <h2>Suggested README Snippet</h2>
+      <pre style="background:#f2f6ff;border-radius:8px;padding:12px;overflow:auto;">
+# Data Wrangler + RAG Chatbot
+
+## Quickstart
+1. Clone repo
+2. Create virtualenv & install dependencies (`requirements.txt`)
+3. Populate `data/raw/` with 30-50 documents
+4. Run `src/acquire/extract_text.py` → `data/interim/`
+5. Run `src/prepare/chunk_text.py` → `data/processed/`
+6. Run `src/index/build_index.py` → `data/index/`
+7. Run `src/app/chatbot.py` or `streamlit run src/app/ui.py`
+
+## Demo
+- Example queries & expected citation format included in `notebooks/rag_demo.ipynb`
+      </pre>
+    </section>
+
+    <footer>
+      <p>Questions or want this exported as a PDF page for your portfolio? <a href="#" id="contact-link">Contact me</a>.</p>
+    </footer>
+  </div>
+</body>
+</html>
