@@ -27,124 +27,19 @@
         validation, and documentation development.
       </p>
     </section>
-    <section id="projects">
-        <div class="project-header">
-          <h1>Data Wrangler + RAG Chatbot</h1>
-          <div class="hero-sub">End-to-end pipeline: raw documents → searchable index → citation-first chatbot</div>
-        </div>
     
-          <section class="card">
-            <h2>Project Summary</h2>
-            <p>
-              The <strong>Data Wrangler + RAG Chatbot</strong> is an end-to-end system that converts a focused corpus
-              (≈30–50 long-form documents: PDFs, HTML, or API outputs) into a searchable knowledge base and
-              a Retrieval-Augmented Generation (RAG) chatbot. The chatbot answers user queries with inline citations
-              to the exact source passages, prioritizing factual accuracy and traceability.
-            </p>
-            <p>
-              Key goals: reproducible ingestion, modular processing, trustworthy answers (citations), and an easy demo UI.
-            </p>
-          </section>
-    </section>
-
-    <section class="card">
-      <h2>Architecture Overview</h2>
-      <p>
-        The pipeline comprises: <strong>Ingestion → Preprocessing/Chunking → Enrichment → Embeddings → Index → Retrieval → LLM → UI</strong>.
-        The system produces chunk-level metadata and persisted vector indexes for fast retrieval. A prompt orchestration layer injects the top-k passages into the LLM prompt and returns answers with inline citations and source references.
-      </p>
-
-      <h3>Detailed Components</h3>
-      <ul>
-        <li><strong>Data Sources:</strong> PDFs, HTML pages, public APIs (manifested with metadata).</li>
-        <li><strong>Ingestion:</strong> Scrapers/downloaders; raw files kept in <code>data/raw/</code>.</li>
-        <li><strong>Extraction & Cleaning:</strong> PDF/HTML extraction (pdfminer / readability), normalization in <code>data/interim/</code>.</li>
-        <li><strong>Chunking:</strong> Heading-aware or sliding-window (~800 chars / 120 overlap), chunks saved to <code>data/processed/</code>.</li>
-        <li><strong>Enrichment:</strong> Optional NER and chunk summaries (SpaCy or small summarizer).</li>
-        <li><strong>Embeddings & Indexing:</strong> sentence-transformers → FAISS / Chroma / Pinecone; index persisted in <code>data/index/</code>.</li>
-        <li><strong>Retrieval & RAG:</strong> top-k search, optional re-ranking, prompt builder that injects numbered excerpts and enforces “answer from context only”.</li>
-        <li><strong>Application:</strong> Streamlit/Gradio demo + REST API for integration.</li>
-      </ul>
-    
-      <img
-        src="images/RAG-Diagram.png"
-        alt="Architecture Diagram"
-        style="max-width: 600px; display: block; margin: 20px auto;">
-          <h2>Tech Stack</h2>
-          <div class="tech">
-            <span class="chip">Python 3.10+</span>
-            <span class="chip">Sentence-Transformers</span>
-            <span class="chip">FAISS / Chroma / Pinecone</span>
-            <span class="chip">OpenAI / Vertex AI</span>
-            <span class="chip">Streamlit / Gradio</span>
-            <span class="chip">GCS / S3</span>
-            <span class="chip">SpaCy</span>
-            <span class="chip">Docker / Kubernetes</span>
-          </div>
-          <p style="margin:0.15rem 0">
-            <strong>RAG Project Repo link:</strong> <a href="https://github.com/bkzarok/rag-project.git" id="github-link">RAG Project repo</a>
-          </p>
-    </section>
 
 
     <section id="projects">
-      <h2>HDC Website Development Project</h2>
-      <div class="project-description">
-        <h3>Real Work Project at HDC </h3>
-        <p>          
-          <a href="https://hdcafrica.org/">HDC Website Link</a> </br>
-          I Updated Organization Web Site: Revamped Organizational Website: Implemented new web pages and success stories, boosting the site’s appeal to donors and stakeholders.        </p>
-      </div>
-    </section>
-
-    <section id="projects">
-      <h2>HDC Website Development Project</h2>
-      <div class="project-description">
-        <h3>Real Work Project at HDC </h3>
-        <p>          
-          <a href="https://hdcafrica.org/">HDC Website Link</a> </br>
-          I Updated Organization Web Site: Revamped Organizational Website: Implemented new web pages and success stories, boosting the site’s appeal to donors and stakeholders.        </p>
-      </div>
-
-      <h2>Hermes Project</h2>
-      <div class="project-description">
-        <div class="hrisproject">
-          <h3>Hermese Project Architecture Diagram</h3>
-          <img
-            src="images/HermesDiagram.png"
-            alt="Hermes Architecture Diagram"
-            style="max-width: 600px; display: block;"
-          />
-          <p>Architecture Diagram of Herme Project.</p>
-        </div>
-        <h3>Real Work Project at NICE </h3>
-        <p>
-            At NICE, I worked on a project called Hermes. The application was an internal tool.
-            Hermes is a cloud-based platform that provides a comprehensive solution 
-            for managing and utilizing data from multiple sources. 
-            NICE specializes in call center software, offering storage for calls,
-             video, chat, and email from companies worldwide. The platform allows 
-             users to access AWS S3 data and transfer it to another S3 bucket, 
-             an SFTP server, an artifactory server, or a physical storage device.
-              The application often runs for extended periods, ranging from days 
-              to weeks, depending on the data size being transferred. It is 
-              designed to be resilient to network failures and other potential 
-              issues during the transfer process. The backend consists of four 
-              main workers: the Meta Data Retrieval Worker, which retrieves 
-              metadata from Elasticsearch or DynamoDB; the Glacier Restore Worker, 
-              which restores data from Glacier to S3; the S3 to S3 Transfer Worker, 
-              which transfers data between S3 buckets; and the SFTP Worker, 
-              which transfers data from S3 to an SFTP server. The frontend was 
-              developed using an ASP.NET Core web application, while the backend
-               was built with .NET Core. The database used was MS SQL, 
-               and the queuing system was based on SQL Server.
-        </p>
-      </div>
-
-      <!-- Project 1 -->
+        <!-- Project 1 -->
       <h2>Black Market SSP Application</h2>
       <div class="project-description">
-        <h3>Project</h3>
+        
+        <h3>Project
+          1: BlackMarket SSP Application
+        </h3>
+        <a href="https://play.google.com/store/apps/details?id=com.bkzarok.SSPBlackMarket">BlackMarket SSP Link</a> 
+
         <p>
           This is my application called BlackMarket SSP. This application tracks
           the currency exchange rate of the black market in South Sudan. It also
@@ -160,14 +55,14 @@
           black market rate of the South Sudanese pound against 10 currencies in
           the region around South Sudan and globally. The application also has a
           social element where users can upvote or downvote daily rates and
-          comment on rates in their respective areas.
+          comment on rates in their respective areas. 
         </p>
       </div>
       <div class="project-container">
         <div class="project">
           <h3>Project 1 Screenshot</h3>
           <img
-            src="images/login-page.png"
+            src="images/login-page.jpg"
             alt="Screenshot of Project 1"
             style="max-width: 200px"
           />
@@ -176,7 +71,7 @@
         <div class="project">
           <h3>Project 1 Screenshot</h3>
           <img
-            src="images/joc_page.png"
+            src="images/joc-page.jpg"
             alt="Screenshot of Project 1"
             style="max-width: 200px"
           />
@@ -228,7 +123,7 @@
         <div class="project">
           <h3>Project 1 Screenshot</h3>
           <img
-            src="images/blackmarketscreen.png"
+            src="images/black-market.jpg"
             alt="Black market rate screen"
           />
           <p>
@@ -240,11 +135,117 @@
         <div class="project">
           <h3>Project 1 Screenshot</h3>
           <img
-            src="images/blackmarketcommentsscreen.png"
+            src="images/comments-screen.jpg"
             alt="Black market rate screen comment section"
           />
           <p>This is the black market rate screen comments section.</p>
         </div>
+      <h2>HDC Website Development Project</h2>
+      <div class="project-description">
+        <h3>Real Work Project at HDC </h3>
+        <p>          
+          <a href="https://hdcafrica.org/">HDC Website Link</a> </br>
+          I Updated Organization Web Site: Revamped Organizational Website: Implemented new web pages and success stories, boosting the site’s appeal to donors and stakeholders.        </p>
+      </div>
+    </section>
+
+    <section id="projects">
+        <h2>Hermes Project</h2>
+      <div class="project-description">
+        <div class="hrisproject">
+          <h3>Hermese Project Architecture Diagram</h3>
+          <img
+            src="images/HermesDiagram.png"
+            alt="Hermes Architecture Diagram"
+            style="max-width: 600px; display: block;"
+          />
+          <p>Architecture Diagram of Herme Project.</p>
+        </div>
+        <h3>Real Work Project at NICE </h3>
+        <p>
+            At NICE, I worked on a project called Hermes. The application was an internal tool.
+            Hermes is a cloud-based platform that provides a comprehensive solution 
+            for managing and utilizing data from multiple sources. 
+            NICE specializes in call center software, offering storage for calls,
+             video, chat, and email from companies worldwide. The platform allows 
+             users to access AWS S3 data and transfer it to another S3 bucket, 
+             an SFTP server, an artifactory server, or a physical storage device.
+              The application often runs for extended periods, ranging from days 
+              to weeks, depending on the data size being transferred. It is 
+              designed to be resilient to network failures and other potential 
+              issues during the transfer process. The backend consists of four 
+              main workers: the Meta Data Retrieval Worker, which retrieves 
+              metadata from Elasticsearch or DynamoDB; the Glacier Restore Worker, 
+              which restores data from Glacier to S3; the S3 to S3 Transfer Worker, 
+              which transfers data between S3 buckets; and the SFTP Worker, 
+              which transfers data from S3 to an SFTP server. The frontend was 
+              developed using an ASP.NET Core web application, while the backend
+               was built with .NET Core. The database used was MS SQL, 
+               and the queuing system was based on SQL Server.
+        </p>
+      </div>
+    </section>
+
+    <section id="projects">
+        <div class="project-header">
+          <h1>Data Wrangler + RAG Chatbot</h1>
+          <div class="hero-sub">End-to-end pipeline: raw documents → searchable index → citation-first chatbot</div>
+        </div>
+    
+          <section class="card">
+            <h2>Project Summary</h2>
+            <p>
+              The <strong>Data Wrangler + RAG Chatbot</strong> is an end-to-end system that converts a focused corpus
+              (≈30–50 long-form documents: PDFs, HTML, or API outputs) into a searchable knowledge base and
+              a Retrieval-Augmented Generation (RAG) chatbot. The chatbot answers user queries with inline citations
+              to the exact source passages, prioritizing factual accuracy and traceability.
+            </p>
+            <p>
+              Key goals: reproducible ingestion, modular processing, trustworthy answers (citations), and an easy demo UI.
+            </p>
+          </section>
+    </section>
+    <section class="card">
+      <h2>Architecture Overview</h2>
+      <p>
+        The pipeline comprises: <strong>Ingestion → Preprocessing/Chunking → Enrichment → Embeddings → Index → Retrieval → LLM → UI</strong>.
+        The system produces chunk-level metadata and persisted vector indexes for fast retrieval. A prompt orchestration layer injects the top-k passages into the LLM prompt and returns answers with inline citations and source references.
+      </p>
+
+      <h3>Detailed Components</h3>
+      <ul>
+        <li><strong>Data Sources:</strong> PDFs, HTML pages, public APIs (manifested with metadata).</li>
+        <li><strong>Ingestion:</strong> Scrapers/downloaders; raw files kept in <code>data/raw/</code>.</li>
+        <li><strong>Extraction & Cleaning:</strong> PDF/HTML extraction (pdfminer / readability), normalization in <code>data/interim/</code>.</li>
+        <li><strong>Chunking:</strong> Heading-aware or sliding-window (~800 chars / 120 overlap), chunks saved to <code>data/processed/</code>.</li>
+        <li><strong>Enrichment:</strong> Optional NER and chunk summaries (SpaCy or small summarizer).</li>
+        <li><strong>Embeddings & Indexing:</strong> sentence-transformers → FAISS / Chroma / Pinecone; index persisted in <code>data/index/</code>.</li>
+        <li><strong>Retrieval & RAG:</strong> top-k search, optional re-ranking, prompt builder that injects numbered excerpts and enforces “answer from context only”.</li>
+        <li><strong>Application:</strong> Streamlit/Gradio demo + REST API for integration.</li>
+      </ul>
+    
+      <img
+        src="images/RAG-Diagram.png"
+        alt="Architecture Diagram"
+        style="max-width: 600px; display: block; margin: 20px auto;">
+          <h2>Tech Stack</h2>
+          <div class="tech">
+            <span class="chip">Python 3.10+</span>
+            <span class="chip">Sentence-Transformers</span>
+            <span class="chip">FAISS / Chroma / Pinecone</span>
+            <span class="chip">OpenAI / Vertex AI</span>
+            <span class="chip">Streamlit / Gradio</span>
+            <span class="chip">GCS / S3</span>
+            <span class="chip">SpaCy</span>
+            <span class="chip">Docker / Kubernetes</span>
+          </div>
+          <p style="margin:0.15rem 0">
+            <strong>RAG Project Repo link:</strong> <a href="https://github.com/bkzarok/rag-project.git" id="github-link">RAG Project repo</a>
+          </p>
+    </section>
+    <section id="projects">
+      
+
 
         <div class="project-description">
           <h2>Organizational Identity Management System</h2>
