@@ -56,6 +56,12 @@
           the region around South Sudan and globally. The application also has a
           social element where users can upvote or downvote daily rates and
           comment on rates in their respective areas. 
+          - **Weighting model:** apply diminishing returns with two logarithmic weights:  
+          w_{user} = 1/\ln(1+n_{user}) and w_{crowd} = 1/\ln(1+n_{users}), clamped to  \le 1.  
+          Effective delta: \Delta = (v_{new}-v_{old}) \times w_{user} \times w_{crowd}.  
+          For add, v_{old}=0.
+
+
         </p>
       </div>
       <div class="project-container">
